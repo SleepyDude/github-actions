@@ -18,7 +18,7 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Fetch num squared
       id: get_square
       uses: ./ # uses action in the root directory
