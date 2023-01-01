@@ -1,0 +1,28 @@
+# This is a basic workflow that is manually triggered
+
+name: Test Action
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on: [push]
+  
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "get-num-square"
+  get-num-square:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Fetch num squared
+      id: get_square
+      uses: ./ # uses action in the root directory
+      with:
+        num: 13
+    - name: Print the square
+      run: echo "${{ steps.get_square.outputs.num_squared }}"
